@@ -3,9 +3,22 @@ import { Formik, Form } from "formik";
 import { LoginValidation } from "../components/validation/UserValidation";
 import { Inputs } from "../components/Form/Inputs";
 import { CheckBox } from "../components/Form/CheckBox";
+import { useDispatch, useSelector } from "react-redux";
+import { startSignIn } from "../store/auth/thunks";
+import { useEffect } from "react";
+import { state } from "../interfaces/state";
 
 export const LoginScreen = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { status } = useSelector((state: state) => state.authState);
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      navigate("/home");
+    }
+  }, [status, navigate]);
 
   return (
     <section className=" bg-white min-h-screen flex items-center justify-center">
@@ -18,7 +31,7 @@ export const LoginScreen = () => {
               remember: false,
             }}
             onSubmit={(values) => {
-              console.log(values);
+              dispatch(startSignIn(values) as any);
             }}
             validationSchema={LoginValidation}
           >
@@ -31,7 +44,7 @@ export const LoginScreen = () => {
                   <Inputs label="Password" name="password" type="password" placeholder="********" />
                 </div>
                 <div className="space-x-2">
-                  <CheckBox label="Recordar Contraseña" name="remember" />
+                  <CheckBox label="Remember me" name="remember" />
                 </div>
                 <button
                   type="submit"
