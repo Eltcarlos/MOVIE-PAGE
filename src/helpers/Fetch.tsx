@@ -1,6 +1,6 @@
 const baseUrl = process.env.REACT_APP_BACKEND_CORE;
 
-export const fetchSinToken = async (endpoint: string, data: {}, method = "GET") => {
+export const fetchSinToken = async (endpoint: string, data?: {}, method = "GET") => {
   const url = `${baseUrl}/${endpoint}`;
   if (method === "GET") {
     const resp = await fetch(url);

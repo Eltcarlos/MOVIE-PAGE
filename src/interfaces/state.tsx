@@ -1,5 +1,6 @@
 export interface state {
   authState: authState;
+  movieState: movieState;
 }
 
 export interface authState {
@@ -8,4 +9,8 @@ export interface authState {
   email: string;
   isAdmin: boolean;
   errorMessage: string;
+}
+
+export interface movieState {
+  movies?: [];
 }

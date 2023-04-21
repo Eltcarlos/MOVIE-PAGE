@@ -2,7 +2,7 @@
 
 export interface Result {
   ok: boolean;
-  usuario: Usuario;
+  user: User;
   msg: any;
   token: string;
 }
@@ -13,4 +13,4 @@ export interface Login {
   remember: boolean;
 }
 
-export interface Usuario {}
+export interface User {}

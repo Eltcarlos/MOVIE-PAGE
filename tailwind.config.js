@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         main: "#080A1A",
         alert: "#F20000",
+        subMain: "#272727",
       },
       backgroundImage: {
         default: "url('../public/images/principal.jpg')",

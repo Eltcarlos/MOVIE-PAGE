@@ -5,6 +5,8 @@ import { LoginScreen } from "../pages/LoginScreen";
 import { HomeScreen } from "../pages/HomeScreen";
 import { ProtectedRouter } from "../helpers/ProtectedRouter";
 import NotFound from "../pages/NotFound";
+import { SingleMovie } from "../pages/SingleMovie";
+import { WatchPage } from "../pages/WatchPage";
 
 export const Index = () => {
   return (
@@ -16,6 +18,8 @@ export const Index = () => {
       {/* PRIVATE ROUTES */}
       <Route element={<ProtectedRouter />}>
         <Route path="/home" element={<HomeScreen />} />
+        <Route path="/movie/:id" element={<SingleMovie />} />
+        <Route path="/watch/:id" element={<WatchPage />} />
       </Route>
     </Routes>
   );

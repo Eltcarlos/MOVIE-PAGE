@@ -15,7 +15,7 @@ export const startSignIn = (form: Login) => {
       }
 
       localStorage.setItem("token", result.token);
-      dispatch(login(result.usuario));
+      dispatch(login(result.user));
     } catch (error) {
       console.log(error);
     }
